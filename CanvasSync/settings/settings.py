@@ -100,8 +100,9 @@ class Settings(object):
             return True
 
         with open(self.settings_path, u"rb") as settings_f:
-            encrypted_message = settings_f.read()
-        messages = decrypt(encrypted_message, password)
+            #encrypted_message = settings_f.read()
+        #messages = decrypt(encrypted_message, password)
+            messages=settings_f.read()
         if not messages:
             # Password file did not exist, set new settings
             print(ANSI.format(u"\n[ERROR] The hashed password file does not"
@@ -211,7 +212,8 @@ class Settings(object):
             settings += u"Linked files$" + str(self.download_linked) + u"\n"
             settings += u"Avoid duplicates$" + str(self.avoid_duplicates) + u"\n"
 
-            out_file.write(encrypt(settings))
+            #out_file.write(encrypt(settings))
+            out_file.write(settings)
 
     def print_advanced_settings(self, clear=True):
         """
