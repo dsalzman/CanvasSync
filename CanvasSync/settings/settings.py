@@ -213,7 +213,7 @@ class Settings(object):
             settings += u"Avoid duplicates$" + str(self.avoid_duplicates) + u"\n"
 
             #out_file.write(encrypt(settings))
-            out_file.write(settings)
+            out_file.write(settings.encode())
 
     def print_advanced_settings(self, clear=True):
         """
